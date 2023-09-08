@@ -1,4 +1,21 @@
 # Functions / Methods to use on different data types
+# from typing import List
+
+"""
+Data Types: 7 Types
+1. Numerical :
+    integer: Non-decimal values
+    float: decimal values
+    complex: 2+3j
+2. List : l = [1,2,"a","b"]
+3. Tuple : t = (1,2,3)
+4. Set : {1,2,"a"}
+5. Dictionary : { "one" : 1, "two": 2 }
+6. String : s = "string"
+7. Boolean : TRUE, FALSE
+"""
+
+### String --> with index
 
 s = "helooo how do u do it? "
 # print(s)
@@ -12,8 +29,8 @@ s = "helooo how do u do it? "
 
 ### Lists are Orderable and Mutable
 
-l = [1, 2, 3, "a", "b", "chango"]
-# print(l)
+l: list[int | str] = [1, 2, 3, "a", "b", "chango"]
+print(l)
 l.append("harry")  # adds new value at the end of the list
 # print(l)
 l.insert(3, 456)  # adds new value at specified index
@@ -51,9 +68,33 @@ s1 = {1, 2, 3, "abc"}
 # print(s1[0]) # will show error as set has no index
 s1.add(87)
 print(s1)
-s2 = {1,2,3,1,2,3,"def", 678}
-print(s2) # it only takes unique values
+s2 = {1, 2, 3, 1, 2, 3, "def", 678}
+print(s2)  # it only takes unique values
 print(s1.intersection(s2))  # prints only common values from both sets
 print(s1.union(s2))  # prints all the unique values from both sets
+s1.clear()
+print(s1)
+del s1
 
+### Dictionary --> "key" : Value
 
+d1 = {"name": "vishal", "age": 24}
+print(d1)  # {'name': 'vishal', 'age': 24}
+print(d1.items())  # dict_items([('name', 'vishal'), ('age', 24)])
+print(d1.keys())  # dict_keys(['name', 'age'])
+print(d1.values())  # dict_values(['vishal', 24])
+d1.update({"location": "ahmedabad"})
+print(d1)
+print(d1['location'])
+print(d1.popitem())
+d1.update({"birthmonth": "April"})
+print(d1)
+print(d1.pop("birthmonth"))
+print(d1)
+
+### BOOLEAN --> True, False
+
+a = True
+print(type(a))
+print(12 > 5)
+print(5 > 12)

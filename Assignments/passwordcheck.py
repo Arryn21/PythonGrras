@@ -20,6 +20,7 @@ count = 0
 
 
 def passcheck():
+    plus = 0
     # 1st Condition Length
     def length():
         if l < 8:

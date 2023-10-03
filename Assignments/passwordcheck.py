@@ -6,7 +6,7 @@ Conditions
 l > 8
 s1 should include small letter, capital letters, 0-9 numbers !@#$%& (33,64,35,36,37,38) special characters
 """
-
+le1 = sp1 = sm1 = ca1 = nu1 = False
 password = input("Enter Your password: ")
 p = password
 l = len(p)
@@ -16,61 +16,67 @@ for i in s:
     s1.append(int(ord(i)))
 c = [33, 35, 36, 37, 38, 64]  # ASCII values for Special Characters !@#$%&
 s1l = len(s1)
-count = 0
-
 
 def passcheck():
-    plus = 0
     # 1st Condition Length
     def length():
-        if l < 8:
+        global le1
+        if l > 8:
+            le1 = True
+        else:
             print("Too short")
 
     length()
 
     # 2nd Condition Special Characters
     def spchar():
-        k = count
+        global sp1
         for i in s1:
-            if i not in c:
-                k += 1
-            if k == s1l:
-                print("Include Special Characters")
+            if i in c:
+                sp1 = True
+                break;
+        if sp1 == False:
+            print("Include Special Characters")
 
     spchar()
 
     # 3rd Condition Small Letters
     def smallet():
-        k = count
         for i in s:
-            if not i.islower():
-                k += 1
-            if k == s1l:
-                print("Include Small letters")
+            global sm1
+            if i.islower():
+                sm1 = True
+                break;
+        if not sm1:
+            print("Include Small letters")
 
     smallet()
 
     # 4th Condition Capital Letters
     def caplet():
-        k = count
+        global ca1
         for i in s:
-            if not i.isupper():
-                k += 1
-            if k == s1l:
-                print("Include Capital letters")
+            if i.isupper():
+                ca1 = True
+                break;
+        if not ca1:
+            print("Include Capital letters")
 
     caplet()
 
     # 5th Condition Numbers
     def nums():
-        k = count
+        global nu1
         for i in s1:
-            if 48 >= i or i >= 57:
-                k += 1
-            if k == s1l:
-                print("Include Numbers")
+            if 48 <= i <= 57:
+                nu1 = True
+                break;
+        if not nu1:
+            print("Include Numbers")
 
     nums()
 
+    if le1 and sp1 and sm1 and ca1 and nu1:
+        print("Success")
 
 passcheck()
